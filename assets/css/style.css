@@ -327,9 +327,9 @@ section { padding: 100px 0; }
     align-items: center;
     position: relative;
     background-image: 
-        linear-gradient(rgba(0, 123, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 123, 255, 0.05) 1px, transparent 1px);
-    background-size: 50px 50px;
+        linear-gradient(rgba(0, 255, 204, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 204, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
 }
 
 .cyber-accent {
