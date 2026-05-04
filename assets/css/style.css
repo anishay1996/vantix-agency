@@ -1,0 +1,381 @@
+/* 
+--------------------------------------------------------------------------------
+[Table of contents]
+1. Variables & Base
+2. Typography
+3. Global Utilities
+4. Components (Buttons, Cards, Badges)
+5. Animations
+6. Layout Sections (Navbar, Hero, Footer)
+7. Specific Variants (Minimalist, Cyber)
+8. Responsive
+--------------------------------------------------------------------------------
+*/
+
+:root {
+    --bg-dark: #0a0a0a;
+    --bg-card: #141414;
+    --primary: #007bff;
+    --primary-glow: rgba(0, 123, 255, 0.5);
+    --secondary: #6610f2;
+    --text-main: #ffffff;
+    --text-dim: #a0a0a0;
+    --gradient: linear-gradient(135deg, #007bff 0%, #6610f2 100%);
+    --font-main: 'Inter', sans-serif;
+    --font-heading: 'Sora', sans-serif;
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --border: rgba(255, 255, 255, 0.05);
+}
+
+/* 1. Variables & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Noise Texture Overlay */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity: 0.05;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+/* 2. Typography */
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+.gradient-text {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.text-dim { color: var(--text-dim) !important; }
+.text-primary { color: var(--primary) !important; }
+
+/* 3. Global Utilities */
+section { padding: 100px 0; }
+.bg-card { background-color: var(--bg-card); }
+.py-10 { padding-top: 100px; padding-bottom: 100px; }
+
+/* 4. Components */
+/* Navbar */
+.navbar {
+    padding: 20px 0;
+    transition: var(--transition);
+    background: transparent;
+}
+
+.navbar.scrolled {
+    padding: 15px 0;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: #fff !important;
+}
+
+/* Dropdown on Hover */
+@media (min-width: 992px) {
+    .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    .dropdown-menu {
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: var(--transition);
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 10px;
+    }
+}
+
+.dropdown-item {
+    color: var(--text-dim);
+    border-radius: 8px;
+    padding: 10px 20px;
+    transition: var(--transition);
+}
+
+.dropdown-item:hover {
+    background: var(--gradient);
+    color: white;
+}
+
+.nav-link {
+    color: var(--text-dim) !important;
+    font-weight: 500;
+    margin: 0 15px;
+    transition: var(--transition);
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--text-main) !important;
+}
+
+/* Buttons */
+.btn-glow {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 0 20px var(--primary-glow);
+    position: relative;
+    z-index: 1;
+}
+
+.btn-glow:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px var(--primary-glow);
+    color: white;
+}
+
+.btn-outline-custom {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-outline-custom:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+/* Cards */
+.card-modern {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 40px;
+    border-radius: 24px;
+    height: 100%;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-modern:hover {
+    transform: translateY(-10px);
+    border-color: rgba(0, 123, 255, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card-modern::after {
+    content: "";
+    position: absolute;
+    top: -50%; right: -50%; width: 100%; height: 100%;
+    background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.card-modern:hover::after { opacity: 0.1; }
+
+.icon-gradient {
+    font-size: 2.5rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 25px;
+    display: inline-block;
+}
+
+/* 5. Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.animate-floating { animation: floating 3s ease-in-out infinite; }
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 30px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+}
+
+.marquee-item {
+    display: inline-block;
+    padding: 0 50px;
+    font-size: 4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    opacity: 0.2;
+    -webkit-text-stroke: 1px white;
+    color: transparent;
+}
+
+/* 6. Layout Sections */
+/* Hero V1 */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 140px;
+    padding-bottom: 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -10%; right: -10%; width: 500px; height: 500px;
+    background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+    z-index: -1;
+    filter: blur(50px);
+}
+
+.hero-title {
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    line-height: 1.1;
+    letter-spacing: -3px;
+    font-weight: 900;
+}
+
+/* 7. Specific Variants */
+/* Minimalist V2 (Moved from index-v2.html) */
+.hero-v2 {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+}
+
+.hero-v2 h1 {
+    font-size: clamp(3.5rem, 12vw, 8rem);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -4px;
+    text-transform: uppercase;
+}
+
+.floating-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 10px 20px;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+    margin-bottom: 30px;
+}
+
+/* Cyber Tech V3 */
+.hero-v3 {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-image: 
+        linear-gradient(rgba(0, 123, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 123, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+.cyber-accent {
+    color: #00ffcc;
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+}
+
+.tech-card {
+    border: 1px solid #00ffcc22;
+    background: rgba(0, 255, 204, 0.02);
+}
+
+.tech-card:hover {
+    border-color: #00ffcc;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+}
+
+/* Stats */
+.stat-box {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    padding: 100px 0 50px;
+    border-top: 1px solid var(--border);
+    margin-top: 100px;
+}
+
+/* 8. Responsive */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: var(--bg-card);
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 15px;
+        border: 1px solid var(--border);
+    }
+    
+    .hero-title { font-size: 3.5rem; }
+    .hero-v2 h1 { font-size: 3.5rem; }
+    .marquee-item { font-size: 2.5rem; }
+}
