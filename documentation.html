@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation | X-Agency - Premium Creative Studio</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="assets/vendor/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Sora:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS (Reusing the same system) -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        body {
+            background: #050505;
+        }
+        .sidebar {
+            background: var(--bg-card);
+            border-right: 1px solid var(--border);
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            padding: 40px 20px;
+            overflow-y: auto;
+        }
+        .doc-content {
+            padding: 60px 0;
+        }
+        .doc-section {
+            margin-bottom: 80px;
+            scroll-margin-top: 100px;
+        }
+        code {
+            background: rgba(255,255,255,0.05);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--primary);
+        }
+        pre {
+            background: #000;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            color: #fff;
+        }
+        .nav-link-doc {
+            color: var(--text-dim);
+            text-decoration: none;
+            display: block;
+            padding: 10px 0;
+            transition: var(--transition);
+        }
+        .nav-link-doc:hover, .nav-link-doc.active {
+            color: var(--primary);
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-lg-3 d-none d-lg-block p-0">
+            <div class="sidebar">
+                <h4 class="navbar-brand mb-5">X-AGENCY</h4>
+                <nav>
+                    <a href="#intro" class="nav-link-doc active">Introduction</a>
+                    <a href="#features" class="nav-link-doc">Key Features</a>
+                    <a href="#structure" class="nav-link-doc">File Structure</a>
+                    <a href="#customization" class="nav-link-doc">Customization</a>
+                    <a href="#fonts-icons" class="nav-link-doc">Fonts & Icons</a>
+                    <a href="#credits" class="nav-link-doc">Credits</a>
+                </nav>
+                <div class="mt-5 pt-5">
+                    <p class="small text-dim">Version 1.0.0</p>
+                    <p class="small text-dim">Created by Vantix Studio</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-lg-9 col-md-12">
+            <div class="container doc-content">
+                
+                <!-- Introduction -->
+                <section id="intro" class="doc-section">
+                    <h1 class="display-4 fw-bold mb-4">Documentation</h1>
+                    <p class="lead text-dim">First of all, thank you for purchasing X-Agency. This documentation covers the installation and usage of this premium template.</p>
+                    <hr class="border-secondary my-5">
+                    <h3 class="fw-bold mb-3">X-Agency Creative Studio Template</h3>
+                    <p class="text-dim">X-Agency is a highly professional, modern, and clean HTML5 template designed for creative agencies, studios, and digital service providers. It features 3 unique home page versions, a portfolio grid, and a functional contact form.</p>
+                </section>
+
+                <!-- Key Features -->
+                <section id="features" class="doc-section">
+                    <h2 class="fw-bold mb-4">Key Features</h2>
+                    <ul class="text-dim fs-5">
+                        <li class="mb-2">3 Unique Home Page Variants (Modern, Minimalist, Cyber)</li>
+                        <li class="mb-2">Full Multi-Page Setup (Services, Work, Contact)</li>
+                        <li class="mb-2">Fully Responsive Design (Bootstrap 5)</li>
+                        <li class="mb-2">Local Asset Hosting (Bootstrap, jQuery, Images)</li>
+                        <li class="mb-2">Premium Glassmorphism UI Components</li>
+                        <li class="mb-2">Advanced CSS3 Animations & Scroll Reveal</li>
+                        <li class="mb-2">Clean and Well-Documented Code</li>
+                    </ul>
+                </section>
+
+                <!-- File Structure -->
+                <section id="structure" class="doc-section">
+                    <h2 class="fw-bold mb-4">File Structure</h2>
+                    <pre>
+X-Agency/
+├── index.html (Home V1)
+├── index-v2.html (Home V2)
+├── index-v3.html (Home V3)
+├── services.html (Services)
+├── work.html (Portfolio)
+├── contact.html (Contact)
+├── assets/
+│   ├── css/
+│   │   └── style.css (Main Stylesheet)
+│   ├── js/
+│   │   └── script.js (Main Logic)
+│   ├── img/ (Project Images)
+│   └── vendor/ (Bootstrap & jQuery Local)
+</pre>
+                </section>
+
+                <!-- Customization -->
+                <section id="customization" class="doc-section">
+                    <h2 class="fw-bold mb-4">Customization</h2>
+                    <h4 class="fw-bold mb-3">Changing Colors</h4>
+                    <p class="text-dim">You can easily change the primary colors of the template by editing the CSS variables in <code>assets/css/style.css</code>:</p>
+                    <pre>
+:root {
+    --primary: #007bff;
+    --secondary: #6610f2;
+    --gradient: linear-gradient(135deg, #007bff 0%, #6610f2 100%);
+    --bg-dark: #0a0a0a;
+}
+</pre>
+                    <h4 class="fw-bold mt-5 mb-3">Updating Images</h4>
+                    <p class="text-dim">All project images are stored in <code>assets/img/</code>. To replace them, simply add your images to this folder and update the <code>src</code> attribute in the HTML files.</p>
+                </section>
+
+                <!-- Fonts & Icons -->
+                <section id="#fonts-icons" class="doc-section">
+                    <h2 class="fw-bold mb-4">Fonts & Icons</h2>
+                    <p class="text-dim">This template uses the following Google Fonts:</p>
+                    <ul class="text-dim">
+                        <li><strong>Inter</strong> - Primary Body Font</li>
+                        <li><strong>Sora</strong> - Primary Heading Font</li>
+                        <li><strong>Outfit</strong> - Heading Font (V2 Variant)</li>
+                    </ul>
+                    <p class="text-dim mt-4">Icons are provided by <strong>Bootstrap Icons</strong>:</p>
+                    <code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"&gt;</code>
+                </section>
+
+                <!-- Credits -->
+                <section id="credits" class="doc-section">
+                    <h2 class="fw-bold mb-4">Credits</h2>
+                    <ul class="text-dim">
+                        <li>Framework: <a href="https://getbootstrap.com/" class="text-primary">Bootstrap 5</a></li>
+                        <li>Library: <a href="https://jquery.com/" class="text-primary">jQuery</a></li>
+                        <li>Images: <a href="https://unsplash.com/" class="text-primary">Unsplash</a></li>
+                        <li>Fonts: <a href="https://fonts.google.com/" class="text-primary">Google Fonts</a></li>
+                    </ul>
+                </section>
+
+                <footer class="mt-5 pt-5 border-top border-secondary">
+                    <p class="text-dim">If you have any questions or need support, please contact us at <a href="mailto:support@vantix.agency" class="text-primary">support@vantix.agency</a></p>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="assets/vendor/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
